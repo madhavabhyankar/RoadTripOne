@@ -98,12 +98,13 @@ namespace RoadTrip.API.Controllers
 
             bool hasRegistered = user != null;
 
-            redirectUri = string.Format("{0}#external_access_token={1}&provider={2}&haslocalaccount={3}&external_user_name={4}",
+            redirectUri = string.Format("{0}#external_access_token={1}&provider={2}&haslocalaccount={3}&external_user_name={4}&email={5}",
                                             redirectUri,
                                             externalLogin.ExternalAccessToken,
                                             externalLogin.LoginProvider,
                                             hasRegistered.ToString(),
-                                            externalLogin.UserName);
+                                            externalLogin.UserName,
+                                            externalLogin.EmailAddress);
 
             return Redirect(redirectUri);
 
@@ -150,6 +151,8 @@ namespace RoadTrip.API.Controllers
             };
 
             result = await _repo.AddLoginAsync(user.Id, info.Login);
+
+            var addedPerson = await _repo.AddPerson(model.FirstName, model.LastName, model.Email);
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
@@ -391,6 +394,7 @@ namespace RoadTrip.API.Controllers
             public string ProviderKey { get; set; }
             public string UserName { get; set; }
             public string ExternalAccessToken { get; set; }
+            public string EmailAddress { get; set; }
 
             public static ExternalLoginData FromIdentity(ClaimsIdentity identity)
             {
@@ -417,6 +421,7 @@ namespace RoadTrip.API.Controllers
                     ProviderKey = providerKeyClaim.Value,
                     UserName = identity.FindFirstValue(ClaimTypes.Name),
                     ExternalAccessToken = identity.FindFirstValue("ExternalAccessToken"),
+                    EmailAddress = identity.FindFirstValue(ClaimTypes.Email)
                 };
             }
         }

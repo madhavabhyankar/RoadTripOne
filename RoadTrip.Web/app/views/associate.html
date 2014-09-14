@@ -13,6 +13,10 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Username" data-ng-model="registerData.userName" required autofocus>
+                    <input type="text" class="form-control" placeholder="First Name" data-ng-model="registerData.firstName" required=""/>
+                    <input type="text" class="form-control" placeholder="Last Name" data-ng-model="registerData.lastName" required=""/>
+                    <input type="text" class="form-control" placeholder="Email" data-ng-model="registerData.email" required=""/>
+
                     <button class="btn btn-sm btn-info btn-block" type="button" style="margin-top:10px;" data-ng-click="registerExternal()">Register</button>
                 </div>
                 <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">

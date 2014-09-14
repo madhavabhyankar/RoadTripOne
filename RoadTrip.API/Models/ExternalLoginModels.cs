@@ -20,11 +20,18 @@ namespace RoadTrip.API.Models
         [Required]
         public string UserName { get; set; }
 
-         [Required]
+        [Required]
         public string Provider { get; set; }
 
-         [Required]
-         public string ExternalAccessToken { get; set; }
+        [Required]
+        public string ExternalAccessToken { get; set; }
+
+        [Required]
+        public string FirstName { get; set; }
+        [Required]
+        public string LastName { get; set; }
+        [Required]
+        public string Email { get; set; }
 
     }
 

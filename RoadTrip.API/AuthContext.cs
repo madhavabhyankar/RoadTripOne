@@ -18,6 +18,8 @@ namespace RoadTrip.API
 
         public DbSet<Client> Clients { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
+        public DbSet<Person> Persons { get; set; }
+        public DbSet<Trip> Trips { get; set; }
     }
 
 }

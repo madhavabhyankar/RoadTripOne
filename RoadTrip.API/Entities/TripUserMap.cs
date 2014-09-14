@@ -7,15 +7,17 @@ using System.Web;
 
 namespace RoadTrip.API.Entities
 {
-    public class Person
+    public class TripUserMap
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
+        [ForeignKey("Trips")]
+        public int TripId { get; set; }
+        [ForeignKey("Users")]
+        public int PersonId { get; set; }
 
-        public virtual List<Trip> OwnedTrips   { get; set; }
+        public List<Trip> Trips { get; set; }
+        public List<Person> Users { get; set; }
     }
 }

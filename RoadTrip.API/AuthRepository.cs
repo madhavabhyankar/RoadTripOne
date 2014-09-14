@@ -1,4 +1,5 @@
-﻿using RoadTrip.API.Entities;
+﻿using System.Runtime.InteropServices;
+using RoadTrip.API.Entities;
 using RoadTrip.API.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -115,6 +116,14 @@ namespace RoadTrip.API
             var result = await _userManager.AddLoginAsync(userId, login);
 
             return result;
+        }
+
+        public async Task<Person> AddPerson(string firstName, string lastName, string email)
+        {
+            var person = new Person {FirstName = firstName, LastName = lastName, Email = email};
+            _ctx.Persons.Add(person);
+            var status = await _ctx.SaveChangesAsync();
+            return person;
         }
 
         public void Dispose()

@@ -42,7 +42,9 @@ app.controller('loginController', ['$scope', '$location', 'authService', 'ngAuth
                 authService.externalAuthData = {
                     provider: fragment.provider,
                     userName: fragment.external_user_name,
-                    externalAccessToken: fragment.external_access_token
+                    externalAccessToken: fragment.external_access_token,
+                    emailAddress: fragment.email,
+
                 };
 
                 $location.path('/associate');

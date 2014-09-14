@@ -151,6 +151,7 @@
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\RefreshToken.cs" />
     <Compile Include="Entities\Trip.cs" />
+    <Compile Include="Entities\TripUserMap.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Migrations\201407121205456_AddClientsAndRefreshTokenTables.cs" />
     <Compile Include="Migrations\201407121205456_AddClientsAndRefreshTokenTables.Designer.cs">

@@ -11,7 +11,7 @@ namespace RoadTrip.API.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(RoadTrip.API.AuthContext context)

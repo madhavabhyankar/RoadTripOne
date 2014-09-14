@@ -13,6 +13,9 @@ namespace RoadTrip.API.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
-        
+
+        [ForeignKey("Owner")]
+        public int OwnerId { get; set; }
+        public Person Owner { get; set; }
     }
 }

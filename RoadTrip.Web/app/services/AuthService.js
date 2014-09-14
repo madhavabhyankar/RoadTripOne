@@ -13,6 +13,7 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngAuthSetting
     var _externalAuthData = {
         provider: "",
         userName: "",
+        emailAddress: "",
         externalAccessToken: ""
     };
 
@@ -142,6 +143,7 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngAuthSetting
 
             _authentication.isAuth = true;
             _authentication.userName = response.userName;
+            _authentication.email = response.email;
             _authentication.useRefreshTokens = false;
 
             deferred.resolve(response);
