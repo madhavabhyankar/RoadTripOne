@@ -27,22 +27,14 @@
             </div>
         </div>
     </div>
-    <div class="jumbotron">
-        <div class="container">
-            <div class="page-header text-center">
-                <h1>AngularJS Authentication</h1>
-            </div>
-            <p>This single page application is built using AngularJS, it is using OAuth bearer token authentication, ASP.NET Web API 2, OWIN middleware, and ASP.NET Identity to generate tokens and register users.</p>
-        </div>
-    </div>
+    
     <div class="container">
-        {{4+5}}
-        <div data-ng-view="">
+       <div data-ng-view="">
         </div>
     </div>
    
-    <script src="Scripts/angular.min.js"></script>
-    <script src="Scripts/angular-route.min.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
     <script src="Scripts/angular-local-storage.min.js"></script>
     <script src="Scripts/loading-bar.min.js"></script>
     <!--Application-->
@@ -51,6 +43,7 @@
     <script src="app/services/authInterceptorService.js"></script>
     <script src="app/services/AuthService.js"></script>
     <script src="app/services/toakensManagementService.js"></script>
+    <script src="app/services/roadTripService.js"></script>
 
     <script src="app/controllers/homeController.js"></script>
     <script src="app/controllers/signupcontroller.js"></script>
@@ -59,6 +52,8 @@
     <script src="app/controllers/refreshController.js"></script>
     <script src="app/controllers/tokensManagementController.js"></script>
     <script src="app/controllers/associateController.js"></script>
+    <script src="app/controllers/addNewRoadTripController.js"></script>
+    <script src="app/controllers/myRoadTripsController.js"></script>
 </body>
 
 </html>

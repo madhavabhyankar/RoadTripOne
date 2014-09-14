@@ -152,7 +152,7 @@ namespace RoadTrip.API.Controllers
 
             result = await _repo.AddLoginAsync(user.Id, info.Login);
 
-            var addedPerson = await _repo.AddPerson(model.FirstName, model.LastName, model.Email);
+            var addedPerson = await _repo.AddPerson(model.FirstName, model.LastName, model.Email,model.UserName);
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);

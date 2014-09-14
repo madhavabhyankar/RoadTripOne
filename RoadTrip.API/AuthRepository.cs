@@ -118,9 +118,9 @@ namespace RoadTrip.API
             return result;
         }
 
-        public async Task<Person> AddPerson(string firstName, string lastName, string email)
+        public async Task<Person> AddPerson(string firstName, string lastName, string email, string registeredUserName)
         {
-            var person = new Person {FirstName = firstName, LastName = lastName, Email = email};
+            var person = new Person {FirstName = firstName, LastName = lastName, Email = email, RegisteredUserName = registeredUserName};
             _ctx.Persons.Add(person);
             var status = await _ctx.SaveChangesAsync();
             return person;

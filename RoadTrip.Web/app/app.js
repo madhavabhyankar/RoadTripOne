@@ -29,6 +29,16 @@ app.config(function($routeProvider) {
         templateUrl: "/app/views/associate.html"
     });
 
+    $routeProvider.when("/myroadtrips", {
+        controller: "myRoadTripsController",
+        templateUrl: "/app/views/myroadtrips.html"
+    });
+
+    $routeProvider.when("/addnewroadtrip", {
+        controller: "addNewRoadTripController",
+        templateUrl: "/app/views/addnewroadtrip.html"
+    });
+
     $routeProvider.otherwise({ redirectTo: "/home" });
 
 });

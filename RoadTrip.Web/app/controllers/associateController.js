@@ -16,7 +16,7 @@ app.controller('associateController', ['$scope', '$location', '$timeout', 'authS
         authService.registerExternal($scope.registerData).then(function (response) {
 
             $scope.savedSuccessfully = true;
-            $scope.message = "User has been registered successfully, you will be redicted to orders page in 2 seconds.";
+            $scope.message = "User has been registered successfully, you will be redicted to Road Tips page in 2 seconds.";
             startTimer();
 
         },
@@ -32,7 +32,7 @@ app.controller('associateController', ['$scope', '$location', '$timeout', 'authS
     var startTimer = function () {
         var timer = $timeout(function () {
             $timeout.cancel(timer);
-            $location.path('/orders');
+            $location.path('/myroadtrips');
         }, 2000);
     }
 

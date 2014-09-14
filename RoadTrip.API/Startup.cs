@@ -1,4 +1,5 @@
-﻿using RoadTrip.API.Providers;
+﻿using Newtonsoft.Json;
+using RoadTrip.API.Providers;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Facebook;
 using Microsoft.Owin.Security.Google;
@@ -31,7 +32,7 @@ namespace RoadTrip.API
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(config);
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<AuthContext, RoadTrip.API.Migrations.Configuration>());
-
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
         }
 
         public void ConfigureOAuth(IAppBuilder app)
