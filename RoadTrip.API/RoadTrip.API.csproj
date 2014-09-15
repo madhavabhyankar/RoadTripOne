@@ -38,6 +38,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
@@ -154,6 +160,9 @@
     <Compile Include="Entities\Trip.cs" />
     <Compile Include="Entities\TripUserMap.cs" />
     <Compile Include="Helper.cs" />
+    <Compile Include="IOC\IOCInstaller.cs" />
+    <Compile Include="IOC\WindsorCompositionRoot.cs" />
+    <Compile Include="IOC\WindsorDependencyResolver.cs" />
     <Compile Include="Migrations\201407121205456_AddClientsAndRefreshTokenTables.cs" />
     <Compile Include="Migrations\201407121205456_AddClientsAndRefreshTokenTables.Designer.cs">
       <DependentUpon>201407121205456_AddClientsAndRefreshTokenTables.cs</DependentUpon>

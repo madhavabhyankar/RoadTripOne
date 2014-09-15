@@ -10,3 +10,9 @@ C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.Web\bin\RoadTrip.
 C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.Web\obj\Debug\RoadTrip.Web.csprojResolveAssemblyReference.cache
 C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.Web\obj\Debug\RoadTrip.Web.dll
 C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.Web\obj\Debug\RoadTrip.Web.pdb
+C:\Users\mabhyankar\Documents\GitHub\RoadTripOne\RoadTripOne\RoadTrip.Web\bin\RoadTrip.Web.dll.config
+C:\Users\mabhyankar\Documents\GitHub\RoadTripOne\RoadTripOne\RoadTrip.Web\bin\RoadTrip.Web.dll
+C:\Users\mabhyankar\Documents\GitHub\RoadTripOne\RoadTripOne\RoadTrip.Web\bin\RoadTrip.Web.pdb
+C:\Users\mabhyankar\Documents\GitHub\RoadTripOne\RoadTripOne\RoadTrip.Web\obj\Debug\RoadTrip.Web.csprojResolveAssemblyReference.cache
+C:\Users\mabhyankar\Documents\GitHub\RoadTripOne\RoadTripOne\RoadTrip.Web\obj\Debug\RoadTrip.Web.dll
+C:\Users\mabhyankar\Documents\GitHub\RoadTripOne\RoadTripOne\RoadTrip.Web\obj\Debug\RoadTrip.Web.pdb

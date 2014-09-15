@@ -16,10 +16,10 @@ namespace RoadTrip.API.Controllers
     {
         private AuthContext _ctx { get; set; }
 
-        public TripController()
+        public TripController(AuthContext context)
         {
-            _ctx = new AuthContext();
-            
+            _ctx = context;
+
         }
         [Authorize]
         [HttpPost]

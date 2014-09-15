@@ -28,9 +28,9 @@ namespace RoadTrip.API.Controllers
             get { return Request.GetOwinContext().Authentication; }
         }
 
-        public AccountController()
+        public AccountController(AuthRepository repo)
         {
-            _repo = new AuthRepository();
+            _repo = repo;
         }
 
         // POST api/Account/Register

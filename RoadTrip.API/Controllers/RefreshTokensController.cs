@@ -14,9 +14,9 @@ namespace RoadTrip.API.Controllers
 
         private AuthRepository _repo = null;
 
-        public RefreshTokensController()
+        public RefreshTokensController(AuthRepository repo)
         {
-            _repo = new AuthRepository();
+            _repo = repo;
         }
 
         [Authorize(Users="Admin")]

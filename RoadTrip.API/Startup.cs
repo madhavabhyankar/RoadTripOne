@@ -1,4 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using System.Web.Http.Dispatcher;
+using Castle.MicroKernel.Resolvers.SpecializedResolvers;
+using Castle.Windsor;
+using Castle.Windsor.Installer;
+using Newtonsoft.Json;
+using RoadTrip.API.IOC;
 using RoadTrip.API.Providers;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Facebook;
@@ -21,14 +26,21 @@ namespace RoadTrip.API
         public static OAuthBearerAuthenticationOptions OAuthBearerOptions { get; private set; }
         public static GoogleOAuth2AuthenticationOptions googleAuthOptions { get; private set; }
         public static FacebookAuthenticationOptions facebookAuthOptions { get; private set; }
+        private static IWindsorContainer _container;
 
         public void Configuration(IAppBuilder app)
         {
             HttpConfiguration config = new HttpConfiguration();
 
+            _container = new WindsorContainer();
+            _container.Install(FromAssembly.This());
+            _container.Kernel.Resolver.AddSubResolver(new CollectionResolver(_container.Kernel, true));
+            var dependencyResolver = new WindsorDependencyResolver(_container);
+            config.DependencyResolver = dependencyResolver;
+
             ConfigureOAuth(app);
 
-            WebApiConfig.Register(config);
+            WebApiConfig.Register(config, _container);
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(config);
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<AuthContext, RoadTrip.API.Migrations.Configuration>());
