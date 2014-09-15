@@ -5,7 +5,10 @@ app.controller('indexController', ['$scope', '$location', 'authService', functio
         authService.logOut();
         $location.path('/home');
     }
+    authService.fillAuthData().then(function(data) {
+        $scope.authentication = data;
+    }, function(e) {
 
-    $scope.authentication = authService.authentication;
+    });
 
 }]);

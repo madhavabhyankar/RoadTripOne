@@ -71,13 +71,24 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngAuthSetting
     };
 
     var _fillAuthData = function () {
+        var deferred = $q.defer();
 
         var authData = localStorageService.get('authorizationData');
         if (authData) {
+
             _authentication.isAuth = true;
             _authentication.userName = authData.userName;
             _authentication.useRefreshTokens = authData.useRefreshTokens;
+            
+        } else {
+            _authentication.isAuth = false;
+            _authentication.userName = "";
+            _authentication.useRefreshTokens = false;
+            
         }
+        deferred.resolve(_authentication);
+
+        return deferred.promise;
 
     };
 

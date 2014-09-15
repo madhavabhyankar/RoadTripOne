@@ -28,7 +28,7 @@ app.controller('loginController', ['$scope', '$location', 'authService', 'ngAuth
                                                                     + "&redirect_uri=" + redirectUri;
         window.$windowScope = $scope;
 
-        var oauthWindow = window.open(externalProviderUrl, "Authenticate Account", "location=0,status=0,width=600,height=750");
+        var oauthWindow = window.open(externalProviderUrl, "Authenticate Account", "location=0,status=0,width=450,height=600");
     };
 
     $scope.authCompletedCB = function (fragment) {
