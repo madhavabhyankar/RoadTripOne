@@ -28,6 +28,7 @@ namespace RoadTrip.API
         public DbSet<Person> Persons { get; set; }
         public DbSet<Trip> Trips { get; set; }
         public DbSet<TripUserMap> TripUserMaps { get; set; }
+        public DbSet<Expense> Expenses { get; set; }
     }
 
 }

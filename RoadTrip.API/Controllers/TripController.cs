@@ -67,13 +67,18 @@ namespace RoadTrip.API.Controllers
 
             var ownerPerson = _ctx.Persons.First(x => x.RegisteredUserName == username);
 
-            var referencedRoadTrip = _ctx.Trips.FirstOrDefault(x => x.Hash == roadTripHash.ToUpper()
+            var referencedRoadTrip = _ctx.Trips.Include("Owner").FirstOrDefault(x => x.Hash == roadTripHash.ToUpper()
                                                                     && x.UserMap.Any(g => g.PersonId == ownerPerson.Id));
             if (referencedRoadTrip != null)
             {
-                var ret = new TripDetailsModel();
-                ret.RoadTripName = referencedRoadTrip.Name;
-                ret.RoadTripHash = referencedRoadTrip.Hash;
+                var ret = new TripDetailsModel
+                {
+                    RoadTripName = referencedRoadTrip.Name,
+                    RoadTripHash = referencedRoadTrip.Hash,
+                    RoadTripId = referencedRoadTrip.Id,
+                    OwnerFirstName = referencedRoadTrip.Owner.FirstName,
+                    OwnerLastName = referencedRoadTrip.Owner.LastName
+                };
 
                 return ret;
             }

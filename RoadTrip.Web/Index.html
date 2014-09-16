@@ -7,44 +7,45 @@
     <link href="Content/loading-bar.min.css" rel="stylesheet" />
     <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
 </head>
-    <body>
-        <div class="container">
-            <nav class="navbar navbar-inverse" role="navigation" data-ng-controller="indexController">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
-                            <span class="glyphicon glyphicon-chevron-down"></span>
-                        </button>
-                        <a class="navbar-brand" href="#/">Home</a>
-                    </div>
-                    <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li data-ng-hide="!authentication.isAuth"><a href="#">Welcome {{authentication.userName}}</a></li>
-                            <li data-ng-hide="!authentication.isAuth"><a href="#/myroadtrips">Road Trips</a></li>
-                            <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Logout</a></li>
-                            <li data-ng-hide="authentication.isAuth"> <a href="#/login">Login</a></li>
-                            <li data-ng-hide="authentication.isAuth"> <a href="#/signup">Sign Up</a></li>
-                        </ul>
-                    </div>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-inverse" role="navigation" data-ng-controller="indexController">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </button>
+                    <a class="navbar-brand" href="#/">Home</a>
                 </div>
-            </nav>
-
-
-            <div data-ng-view="">
+                <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li data-ng-hide="!authentication.isAuth"><a href="#">Welcome {{authentication.userName}}</a></li>
+                        <li data-ng-hide="!authentication.isAuth"><a href="#/myroadtrips">Road Trips</a></li>
+                        <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Logout</a></li>
+                        <li data-ng-hide="authentication.isAuth"> <a href="#/login">Login</a></li>
+                        <li data-ng-hide="authentication.isAuth"> <a href="#/signup">Sign Up</a></li>
+                    </ul>
+                </div>
             </div>
+        </nav>
+
+
+        <div data-ng-view="">
         </div>
-   
+    </div>
+
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/angular-route.js"></script>
     <script src="Scripts/angular-local-storage.min.js"></script>
     <script src="Scripts/loading-bar.min.js"></script>
     <!--Application-->
     <script src="app/app.js"></script>
-    
+
     <script src="app/services/authInterceptorService.js"></script>
     <script src="app/services/AuthService.js"></script>
     <script src="app/services/toakensManagementService.js"></script>
     <script src="app/services/roadTripService.js"></script>
+    <script src="app/services/expenseService.js"></script>
 
     <script src="app/controllers/homeController.js"></script>
     <script src="app/controllers/signupcontroller.js"></script>
@@ -55,8 +56,10 @@
     <script src="app/controllers/associateController.js"></script>
     <script src="app/controllers/addNewRoadTripController.js"></script>
     <script src="app/controllers/myRoadTripsController.js"></script>
-        <script src="app/controllers/roadTripDetailsController.js"></script>
-      
+    <script src="app/controllers/roadTripDetailsController.js"></script>
+    <script src="app/controllers/roadTripExpensesContoller.js"></script>
+
+
 </body>
 
 </html>

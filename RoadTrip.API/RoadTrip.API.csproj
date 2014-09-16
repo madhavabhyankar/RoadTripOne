@@ -151,10 +151,12 @@
     <Compile Include="AuthContext.cs" />
     <Compile Include="AuthRepository.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ExpenseController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\RefreshTokensController.cs" />
     <Compile Include="Controllers\TripController.cs" />
     <Compile Include="Entities\Client.cs" />
+    <Compile Include="Entities\Expense.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Entities\RefreshToken.cs" />
     <Compile Include="Entities\Trip.cs" />
@@ -170,6 +172,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\ExpenseDisplayModel.cs" />
+    <Compile Include="Models\ExpenseSaveModel.cs" />
     <Compile Include="Models\ExternalLoginModels.cs" />
     <Compile Include="Models\RoadTripModel.cs" />
     <Compile Include="Models\RoadTripUserModel.cs" />

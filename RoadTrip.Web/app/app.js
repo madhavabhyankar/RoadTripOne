@@ -42,7 +42,14 @@ app.config(function($routeProvider) {
         controller: "roadTripDetailsController",
         templateUrl: "/app/views/roadTripDetails.html"
     });
-
+    $routeProvider.when("/expenses/:roadTripId", {
+        controller: "roadTripExpensesContoller",
+        templateUrl: '/app/views/expenses.html'
+    });
+    $routeProvider.when("/addExpense/:roadTripId", {
+        controller: "roadTripAddExpenseController",
+        templateUrl: '/app/views/addExpense.html'
+    })
     $routeProvider.otherwise({ redirectTo: "/home" });
 
 });
