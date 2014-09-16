@@ -38,6 +38,10 @@ app.config(function($routeProvider) {
         controller: "addNewRoadTripController",
         templateUrl: "/app/views/addnewroadtrip.html"
     });
+    $routeProvider.when("/tripdetails/:roadTripHash", {
+        controller: "roadTripDetailsController",
+        templateUrl: "/app/views/roadTripDetails.html"
+    });
 
     $routeProvider.otherwise({ redirectTo: "/home" });
 

@@ -16,6 +16,10 @@ namespace RoadTrip.API.Entities
 
         [ForeignKey("Owner")]
         public int OwnerId { get; set; }
+        [MaxLength(13)]
+        public string Hash { get; set; }
         public Person Owner { get; set; }
+
+        public List<TripUserMap> UserMap  { get; set; }
     }
 }

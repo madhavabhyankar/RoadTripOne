@@ -12,12 +12,13 @@ namespace RoadTrip.API.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [ForeignKey("Trips")]
+        [ForeignKey("Trip")]
         public int TripId { get; set; }
-        [ForeignKey("Users")]
+        [ForeignKey("User")]
         public int PersonId { get; set; }
 
-        public List<Trip> Trips { get; set; }
-        public List<Person> Users { get; set; }
+        public bool IsOwner { get; set; }
+        public Trip Trip { get; set; }
+        public Person User { get; set; }
     }
 }

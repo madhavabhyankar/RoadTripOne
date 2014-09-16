@@ -31,12 +31,16 @@ namespace RoadTrip.API.Controllers
                 return null;
             }
 
-            
             var username = ClaimsPrincipal.Current.Identity.Name;
 
             var ownerPerson = _ctx.Persons.First(x => x.RegisteredUserName == username);
             var newRoadTrip = new Trip {Name = model.Name, OwnerId = ownerPerson.Id};
             _ctx.Trips.Add(newRoadTrip);
+            
+            _ctx.SaveChanges();
+            newRoadTrip.Hash = String.Format("{0}{1}", username.Substring(0, 2).ToUpper(), newRoadTrip.Id);
+            var tripMap = new TripUserMap {IsOwner = true, PersonId = ownerPerson.Id, TripId = newRoadTrip.Id};
+            _ctx.TripUserMaps.Add(tripMap);
             return _ctx.SaveChanges() > 0 ? newRoadTrip : null;
 
         }
@@ -46,12 +50,35 @@ namespace RoadTrip.API.Controllers
         [Route("TripsIOwn")]
         public List<Trip> GetTripsIOwn()
         {
+
+            var username = ClaimsPrincipal.Current.Identity.Name;
+
+            var ownerPerson = _ctx.Persons.First(x => x.RegisteredUserName == username);
+            var d = _ctx.Trips.Where(x => x.OwnerId == ownerPerson.Id).ToList();
+            return d;
+        }
+
+        [Authorize]
+        [HttpGet]
+        [Route("TripDetails/{roadTripHash}")]
+        public TripDetailsModel GetTripDetails(string roadTripHash)
+        {
             var username = ClaimsPrincipal.Current.Identity.Name;
 
             var ownerPerson = _ctx.Persons.First(x => x.RegisteredUserName == username);
 
-            var d = _ctx.Trips.Where(x => x.OwnerId == ownerPerson.Id).ToList();
-            return d;
+            var referencedRoadTrip = _ctx.Trips.FirstOrDefault(x => x.Hash == roadTripHash.ToUpper()
+                                                                    && x.UserMap.Any(g => g.PersonId == ownerPerson.Id));
+            if (referencedRoadTrip != null)
+            {
+                var ret = new TripDetailsModel();
+                ret.RoadTripName = referencedRoadTrip.Name;
+                ret.RoadTripHash = referencedRoadTrip.Hash;
+
+                return ret;
+            }
+            return null;
+
         } 
     }
 }

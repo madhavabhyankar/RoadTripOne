@@ -64,6 +64,7 @@
     <Content Include="app\controllers\loginController.js" />
     <Content Include="app\controllers\myRoadTripsController.js" />
     <Content Include="app\controllers\refreshController.js" />
+    <Content Include="app\controllers\roadTripDetailsController.js" />
     <Content Include="app\controllers\signupcontroller.js" />
     <Content Include="app\controllers\tokensManagementController.js" />
     <Content Include="app\services\authInterceptorService.js" />
@@ -75,6 +76,7 @@
     <Content Include="app\views\login.html" />
     <Content Include="app\views\myroadtrips.html" />
     <Content Include="app\views\refresh.html" />
+    <Content Include="app\views\roadTripDetails.html" />
     <Content Include="app\views\signup.html" />
     <Content Include="app\views\tokens.html" />
     <Content Include="authComplete.html" />

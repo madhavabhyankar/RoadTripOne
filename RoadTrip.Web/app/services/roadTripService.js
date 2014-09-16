@@ -17,11 +17,6 @@ app.factory('roadTripService', [
                 deferred.reject(e);
                 //error handling
             });
-            //$http.get(serviceBase + 'api/Trips/TripsIHaveJoined').then(function(trips) {
-            //    roadTripServiceFactory.roadTripsIHaveJoined = trips;
-            //}, function(e) {
-            //    //error handling
-            //});
             return deferred.promise;
 
         }
@@ -37,8 +32,20 @@ app.factory('roadTripService', [
 
             return deferred.promise;
         }
+        var _getRoadTripDetails = function(roadTripHash) {
+            var deferred = $q.defer();
+
+            $http.get(serviceBase + 'api/Trips/TripDetails/' + roadTripHash).then(
+                function(data) {
+                    deferred.resolve(data.data);
+                }, function(e) {
+                    deferred.reject(e);
+                });
+            return deferred.promise;
+        }
         roadTripServiceFactory.addNewRoadTrip = _addNewRoadTrip;
         roadTripServiceFactory.getAllRoadTripsIOwn = _getAllRoadTripsIOwn;
+        roadTripServiceFactory.getRoadTripDetails = _getRoadTripDetails;
 
         return roadTripServiceFactory;
     }

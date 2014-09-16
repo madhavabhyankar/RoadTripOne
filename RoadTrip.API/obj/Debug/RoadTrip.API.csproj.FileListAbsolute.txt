@@ -140,3 +140,7 @@ C:\Users\mabhyankar\Documents\GitHub\RoadTripOne\RoadTripOne\RoadTrip.API\obj\De
 C:\Users\mabhyankar\Documents\GitHub\RoadTripOne\RoadTripOne\RoadTrip.API\obj\Debug\RoadTrip.API.dll
 C:\Users\mabhyankar\Documents\GitHub\RoadTripOne\RoadTripOne\RoadTrip.API\obj\Debug\RoadTrip.API.pdb
 C:\Users\mabhyankar\Documents\GitHub\RoadTripOne\RoadTripOne\RoadTrip.API\obj\Debug\RoadTrip.API.csprojResolveAssemblyReference.cache
+C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.API\bin\Castle.Core.dll
+C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.API\bin\Castle.Windsor.dll
+C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.API\bin\Castle.Core.xml
+C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.API\bin\Castle.Windsor.xml

@@ -1,9 +1,17 @@
 ﻿<div>
-    <a href="#/addnewroadtrip">Add New road Trip</a>
-
-    MyRoadTrips
-
-    <ul>
-        <li data-ng-repeat="roadTrip in roadTripsIOwn">{{roadTrip.name}}</li>
-    </ul>
+        <div class="row">
+            <span class="pull-left col-lg-6">Road Trip</span>
+            <div class="pull-right col-lg-6">
+                <a href="#/addnewroadtrip"><i class="fa  fa-2x fa-plus pull-right"></i></a>
+            </div>
+        </div>
+    
+    <div class="row">
+        
+        
+        <div data-ng-repeat="roadTrip in roadTripsIOwn">
+            <a data-ng-href="#/tripdetails/{{roadTrip.hash}}" class="btn btn-success form-control"><span class="pull-left">{{roadTrip.name}}</span><i class="glyphicon glyphicon-arrow-right pull-right"></i></a>
+        </div>
+        
+    </div>
 </div>

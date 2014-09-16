@@ -169,8 +169,11 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Enums.cs" />
+    <Compile Include="Models\ExpenseDisplayModel.cs" />
     <Compile Include="Models\ExternalLoginModels.cs" />
     <Compile Include="Models\RoadTripModel.cs" />
+    <Compile Include="Models\RoadTripUserModel.cs" />
+    <Compile Include="Models\TripDetailsModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\FacebookAuthProvider.cs" />
