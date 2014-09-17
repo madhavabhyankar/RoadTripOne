@@ -23,15 +23,17 @@
 
                 $http.post(serviceBase + 'api/Expense/AddExpenseToTrip', expenseToAdd).then(
                     function(data) {
-
+                        allExpenses.push(data.data);
+                        deferred.resolve(data.data);
                     }, function(e) {
-
-                    });
+                    deferred.reject(e);
+                });
 
                 return deferred.promise;
             }
             return {
-                getAllExpenses: _getAllExpenses
+                getAllExpenses: _getAllExpenses,
+                addExpense: _addExpense
             };
         }
     ]);

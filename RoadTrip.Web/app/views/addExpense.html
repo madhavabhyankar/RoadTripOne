@@ -1,9 +1,12 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+﻿<div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <input type="hidden" data-ng-model="expenses.tripId" />
+            <input type="text" class="form-control" placeholder="Expense $x.xx" data-ng-model="expenses.dollarAmount" required autofocus>
+            <input type="text" class="form-control" placeholder="Expense Date- mm/dd/yyyy" data-ng-model="expenses.expenseDate" required="" />
+            <input type="text" class="form-control" placeholder="Details" data-ng-model="expenses.notes" required="" />
+            
+            <button class="btn btn-sm btn-info btn-block" type="button" style="margin-top:10px;" data-ng-click="saveExpense()">Save Expense</button>
+        </div>
+    </div>
+</div>
