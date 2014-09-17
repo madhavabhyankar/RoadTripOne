@@ -168,6 +168,18 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngAuthSetting
 
     };
 
+    var _getMyDetails = function() {
+        var deferred = $q.defer();
+        $http.get(serviceBase + 'api/account/GetMyDetails').then(function(data) {
+            deferred.resolve(data.data);
+        }, function(e) {
+            _logOut();
+            deferred.reject(e);
+
+        });
+        return deferred.promise;
+    }
+
     authServiceFactory.saveRegistration = _saveRegistration;
     authServiceFactory.login = _login;
     authServiceFactory.logOut = _logOut;
@@ -178,6 +190,6 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngAuthSetting
     authServiceFactory.obtainAccessToken = _obtainAccessToken;
     authServiceFactory.externalAuthData = _externalAuthData;
     authServiceFactory.registerExternal = _registerExternal;
-
+    authServiceFactory.getMyDetails = _getMyDetails;
     return authServiceFactory;
 }]);

@@ -1,65 +1,83 @@
 ﻿<!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="RoadTripApp">
-<head>
-    <title></title>
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="Content/font-awesome.min.css" rel="stylesheet" />
-    <link href="Content/loading-bar.min.css" rel="stylesheet" />
-    <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
-</head>
-<body>
-    <div class="container">
-        <nav class="navbar navbar-inverse" role="navigation" data-ng-controller="indexController">
-            <div class="container">
-                <div class="navbar-header">
-                    <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
-                        <span class="glyphicon glyphicon-chevron-down"></span>
-                    </button>
-                    <a class="navbar-brand" href="#/">Home</a>
-                </div>
-                <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li data-ng-hide="!authentication.isAuth"><a href="#">Welcome {{authentication.userName}}</a></li>
-                        <li data-ng-hide="!authentication.isAuth"><a href="#/myroadtrips">Road Trips</a></li>
-                        <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Logout</a></li>
-                        <li data-ng-hide="authentication.isAuth"> <a href="#/login">Login</a></li>
-                        <li data-ng-hide="authentication.isAuth"> <a href="#/signup">Sign Up</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        <link href="Content/bootstrap.min.css" rel="stylesheet" />
+        <link href="Content/font-awesome.min.css" rel="stylesheet" />
+        <link href="Content/loading-bar.min.css" rel="stylesheet" />
+        <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
+        <link href="Content/RoadTrip.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container"></div>
         <div data-ng-view="">
         </div>
-    </div>
+        <!--<<div class="jumbotron" data-ng-controller="indexController">
+        
+                 <div data-ng-hide="!authentication.isAuth">
+                     <h1>Welcome </h1>
+                 </div>
+                 <div data-ng-hide="authentication.isAuth">
+                     <h1>Road Trip</h1>
+                     <p>Looks like you are not logged in.  Please login to see more!</p>
+                     <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+                 </div>
+                 <p>...</p>
+                 <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+             </div>-->
+        <!--<div class="container">
+            <nav class="navbar navbar-inverse" role="navigation" data-ng-controller="indexController">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                        </button>
+                        <a class="navbar-brand" href="#/">Home</a>
+                    </div>
+                    <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li data-ng-hide="!authentication.isAuth"><a href="#">Welcome {{authentication.userName}}</a></li>
+                            <li data-ng-hide="!authentication.isAuth"><a href="#/myroadtrips">Road Trips</a></li>
+                            <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Logout</a></li>
+                            <li data-ng-hide="authentication.isAuth"> <a href="#/login">Login</a></li>
+                            <li data-ng-hide="authentication.isAuth"> <a href="#/signup">Sign Up</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>-->
 
-    <script src="Scripts/angular.js"></script>
-    <script src="Scripts/angular-route.js"></script>
-    <script src="Scripts/angular-local-storage.min.js"></script>
-    <script src="Scripts/loading-bar.min.js"></script>
-    <!--Application-->
-    <script src="app/app.js"></script>
 
-    <script src="app/services/authInterceptorService.js"></script>
-    <script src="app/services/AuthService.js"></script>
-    <script src="app/services/toakensManagementService.js"></script>
-    <script src="app/services/roadTripService.js"></script>
-    <script src="app/services/expenseService.js"></script>
+        
+        <!--</div>-->
 
-    <script src="app/controllers/homeController.js"></script>
-    <script src="app/controllers/signupcontroller.js"></script>
-    <script src="app/controllers/loginController.js"></script>
-    <script src="app/controllers/indexController.js"></script>
-    <script src="app/controllers/refreshController.js"></script>
-    <script src="app/controllers/tokensManagementController.js"></script>
-    <script src="app/controllers/associateController.js"></script>
-    <script src="app/controllers/addNewRoadTripController.js"></script>
-    <script src="app/controllers/myRoadTripsController.js"></script>
-    <script src="app/controllers/roadTripDetailsController.js"></script>
-    <script src="app/controllers/roadTripExpensesContoller.js"></script>
-    <script src="app/controllers/roadTripAddExpenseController.js"></script>
+        <script src="Scripts/angular.js"></script>
+        <script src="Scripts/angular-route.js"></script>
+        <script src="Scripts/angular-local-storage.min.js"></script>
+        <script src="Scripts/loading-bar.min.js"></script>
+        <!--Application-->
+        <script src="app/app.js"></script>
 
-</body>
+        <script src="app/services/authInterceptorService.js"></script>
+        <script src="app/services/AuthService.js"></script>
+        <script src="app/services/toakensManagementService.js"></script>
+        <script src="app/services/roadTripService.js"></script>
+        <script src="app/services/expenseService.js"></script>
+
+        <script src="app/controllers/homeController.js"></script>
+        <script src="app/controllers/signupcontroller.js"></script>
+        <script src="app/controllers/loginController.js"></script>
+        <script src="app/controllers/indexController.js"></script>
+        <script src="app/controllers/refreshController.js"></script>
+        <script src="app/controllers/tokensManagementController.js"></script>
+        <script src="app/controllers/associateController.js"></script>
+        <script src="app/controllers/addNewRoadTripController.js"></script>
+        <script src="app/controllers/myRoadTripsController.js"></script>
+        <script src="app/controllers/roadTripDetailsController.js"></script>
+        <script src="app/controllers/roadTripExpensesContoller.js"></script>
+        <script src="app/controllers/roadTripAddExpenseController.js"></script>
+
+    </body>
 
 </html>

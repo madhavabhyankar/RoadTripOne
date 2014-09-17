@@ -32,10 +32,10 @@ app.factory('roadTripService', [
 
             return deferred.promise;
         }
-        var _getRoadTripDetails = function(roadTripHash) {
+        var _getRoadTripDetailById = function (roadTripId) {
             var deferred = $q.defer();
 
-            $http.get(serviceBase + 'api/Trips/TripDetails/' + roadTripHash).then(
+            $http.get(serviceBase + 'api/Trips/TripDetailsById/' + roadTripId).then(
                 function(data) {
                     deferred.resolve(data.data);
                 }, function(e) {
@@ -45,7 +45,7 @@ app.factory('roadTripService', [
         }
         roadTripServiceFactory.addNewRoadTrip = _addNewRoadTrip;
         roadTripServiceFactory.getAllRoadTripsIOwn = _getAllRoadTripsIOwn;
-        roadTripServiceFactory.getRoadTripDetails = _getRoadTripDetails;
+        roadTripServiceFactory.getRoadTripDetailById = _getRoadTripDetailById;
 
         return roadTripServiceFactory;
     }

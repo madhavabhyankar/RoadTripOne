@@ -38,7 +38,7 @@ app.config(function($routeProvider) {
         controller: "addNewRoadTripController",
         templateUrl: "/app/views/addnewroadtrip.html"
     });
-    $routeProvider.when("/tripdetails/:roadTripHash", {
+    $routeProvider.when("/tripdetails/:roadTripId", {
         controller: "roadTripDetailsController",
         templateUrl: "/app/views/roadTripDetails.html"
     });
@@ -49,7 +49,7 @@ app.config(function($routeProvider) {
     $routeProvider.when("/addExpense/:roadTripId", {
         controller: "roadTripAddExpenseController",
         templateUrl: '/app/views/addExpense.html'
-    })
+    });
     $routeProvider.otherwise({ redirectTo: "/home" });
 
 });

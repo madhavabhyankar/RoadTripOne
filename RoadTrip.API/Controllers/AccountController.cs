@@ -22,17 +22,36 @@ namespace RoadTrip.API.Controllers
     public class AccountController : ApiController
     {
         private AuthRepository _repo = null;
+        private readonly AuthContext _context;
 
         private IAuthenticationManager Authentication
         {
             get { return Request.GetOwinContext().Authentication; }
         }
 
-        public AccountController(AuthRepository repo)
+        public AccountController(AuthRepository repo, AuthContext context)
         {
             _repo = repo;
+            _context = context;
         }
 
+        [Authorize]
+        [HttpGet]
+        [Route("GetMyDetails")]
+        public PersonDisplayModel GetMyDetails()
+        {
+            var username = ClaimsPrincipal.Current.Identity.Name;
+
+            var ownerPerson = _context.Persons.First(x => x.RegisteredUserName == username);
+
+            return new PersonDisplayModel
+            {
+                Email = ownerPerson.Email,
+                FirstName = ownerPerson.FirstName,
+                PersonId = ownerPerson.Id,
+                LastName = ownerPerson.LastName
+            };
+        }
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]

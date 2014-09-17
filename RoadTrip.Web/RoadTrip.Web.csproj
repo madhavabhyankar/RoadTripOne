@@ -85,6 +85,7 @@
     <Content Include="app\views\signup.html" />
     <Content Include="app\views\tokens.html" />
     <Content Include="authComplete.html" />
+    <Content Include="Content\RoadTrip.css" />
     <Content Include="Scripts\authComplete.js" />
     <Content Include="Scripts\version.json" />
     <Content Include="Scripts\errors.json" />

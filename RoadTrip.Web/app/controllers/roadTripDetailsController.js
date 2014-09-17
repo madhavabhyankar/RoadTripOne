@@ -4,7 +4,7 @@ app.controller('roadTripDetailsController', [
     function ($scope, $routeParams, roadTripService) {
         $scope.routeTripDetails = {};
 
-        roadTripService.getRoadTripDetails($routeParams.roadTripHash).then(
+        roadTripService.getRoadTripDetailById($routeParams.roadTripId).then(
             function(data) {
                 $scope.routeTripDetails = data;
             }, function(e) {

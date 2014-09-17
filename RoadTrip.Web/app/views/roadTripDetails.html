@@ -1,19 +1,40 @@
-﻿<div class="row">
-    <div class="col-lg-6">
-        <a data-ng-href="#/myroadtrips" class="btn btn-default">Back</a>
-    </div>
+﻿
+<div class="row">
+    <h2 class="text-center">
+        {{routeTripDetails.roadTripName}}
+    </h2>
 </div>
 <div class="row">
-    {{routeTripDetails.roadTripName}}
+    <h4 class="text-center">
+        Join Code <pre>{{routeTripDetails.roadTripHash}}</pre>
+    </h4>
     
 </div>
 <div class="row">
-    {{routeTripDetails.roadTripHash}}
-</div>
-
-<div class="footer">
-    <div class="btn btn-group form-control">
-        <a class="btn btn-default col-lg-6" data-ng-href="#/expenses/{{routeTripDetails.roadTripId}}"><i class="fa fa-dollar"></i></a>
-        <div class="btn btn-default col-lg-6"><i class="fa fa-users"></i></div>
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Expenses</div>
+            <div class="panel-body">
+                <h3>{{routeTripDetails.totalExpenses | currency}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Owner</div>
+            <div class="panel-body">
+                <strong>Name:</strong> {{routeTripDetails.ownerFirstName}} {{routeTripDetails.ownerLastName}} <br/>
+                <strong>Total Users:</strong> {{routeTripDetails.users.length}}
+            </div>
+        </div>
     </div>
 </div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    <div class="btn-group-justified">
+       
+        <a class="btn btn-default " data-ng-href="#/addExpense/{{routeTripDetails.roadTripId}}"><i class="fa fa-dollar"></i></a>
+        <div class="btn btn-default"><i class="fa fa-users"></i></div>
+        <a class="btn btn-default" href="#/myroadtrips"><i class="fa fa-road"></i></a>
+    </div>
+</nav>
