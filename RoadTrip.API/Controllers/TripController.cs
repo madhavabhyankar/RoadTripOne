@@ -84,6 +84,32 @@ namespace RoadTrip.API.Controllers
             }
             return null;
 
+        }
+
+        [Authorize]
+        [HttpGet]
+        [Route("UsersForTrip/{roadTripId}")]
+        public List<PersonDisplayModel> GetUsersForRoadTrip(int roadTripId)
+        {
+            var username = ClaimsPrincipal.Current.Identity.Name;
+
+            var ownerPerson = _ctx.Persons.First(x => x.RegisteredUserName == username);
+            var roadTrip = _ctx.TripUserMaps.Include("User").Where(x => x.TripId == roadTripId).ToList();
+            if (roadTrip != null)
+            {
+                return
+                    roadTrip.Select(
+                        x =>
+                            new PersonDisplayModel
+                            {
+                                FirstName = x.User.FirstName,
+                                LastName = x.User.LastName,
+                                Email = x.User.Email,
+                                PersonId = x.PersonId,
+                                IsOwner = x.IsOwner
+                            }).ToList();
+            }
+            throw  new Exception("Road Trip Id was not recognized");
         } 
     }
 }

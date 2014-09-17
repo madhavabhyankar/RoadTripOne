@@ -11,7 +11,9 @@
     
 </div>
 <div class="row" data-ng-repeat="expense in expenses">
-
+    <span>{{expense.expenseDate}}</span> - <span>{{expense.dollarAmount}}</span>
+    <br/>
+    <span>{{expense.firstName}} {{expense.lastName}}</span>
 </div>
 
 <div class="footer">

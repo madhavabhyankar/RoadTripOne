@@ -174,8 +174,10 @@
     <Compile Include="Models\ExpenseDisplayModel.cs" />
     <Compile Include="Models\ExpenseSaveModel.cs" />
     <Compile Include="Models\ExternalLoginModels.cs" />
+    <Compile Include="Models\PersonDisplayModel.cs" />
     <Compile Include="Models\RoadTripModel.cs" />
     <Compile Include="Models\RoadTripUserModel.cs" />
+    <Compile Include="Models\SharedCodeDisplayModel.cs" />
     <Compile Include="Models\TripDetailsModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
