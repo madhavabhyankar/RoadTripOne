@@ -1,12 +1,42 @@
 ﻿<div>
+
     <div class="col-md-6">
-        <div class="form-group">
-            <input type="hidden" data-ng-model="expenses.tripId" />
-            <input type="text" class="form-control" placeholder="Expense $x.xx" data-ng-model="expenses.dollarAmount" required autofocus>
-            <input type="text" class="form-control" placeholder="Expense Date- mm/dd/yyyy" data-ng-model="expenses.expenseDate" required="" />
-            <input type="text" class="form-control" placeholder="Details" data-ng-model="expenses.notes" required="" />
-            
-            <button class="btn btn-sm btn-info btn-block" type="button" style="margin-top:10px;" data-ng-click="saveExpense()">Save Expense</button>
+
+    </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Expense Details</div>
+        <div class="panel-body">
+
+            <div class="form-group">
+
+
+                <input type="hidden" data-ng-model="expenses.tripId" />
+                <label>Dollar Amount:</label>
+                <div class="input-group">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" class="form-control" placeholder="0.00" data-ng-model="expenses.dollarAmount" required autofocus>
+                </div>
+                    <label>Date: </label>
+                <p class="input-group">
+                    <input type="text" class="form-control"
+                           datepicker-popup="yyyy-MM-dd"
+                           ng-model='expenses.expenseDate' is-open="opened"
+                           min-date="minDate" max-date="'2015-06-22'"
+                           date-disabled="false"
+                           ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </p>
+
+                <label>Notes</label>
+                <input type="text" class="form-control" placeholder="Details" data-ng-model="expenses.notes" required="" />
+
+                <button class="btn btn-sm btn-info btn-block" type="button" style="margin-top:10px;" data-ng-click="saveExpense()">Save Expense</button>
+            </div>
+
         </div>
     </div>
 </div>

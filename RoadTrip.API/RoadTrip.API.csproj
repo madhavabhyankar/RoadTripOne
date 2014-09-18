@@ -110,6 +110,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Cors, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.2\lib\net45\System.Web.Cors.dll</HintPath>
@@ -170,11 +171,14 @@
       <DependentUpon>201407121205456_AddClientsAndRefreshTokenTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AddUserToRoadTripModel.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\ExpenseDisplayModel.cs" />
     <Compile Include="Models\ExpenseSaveModel.cs" />
     <Compile Include="Models\ExternalLoginModels.cs" />
+    <Compile Include="Models\JoinRoadTripModel.cs" />
     <Compile Include="Models\PersonDisplayModel.cs" />
+    <Compile Include="Models\RegisterUserModel.cs" />
     <Compile Include="Models\RoadTripModel.cs" />
     <Compile Include="Models\RoadTripUserModel.cs" />
     <Compile Include="Models\SharedCodeDisplayModel.cs" />
@@ -191,6 +195,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\ngAuthenticationAPI.pubxml" />
+    <None Include="Properties\PublishProfiles\RoadTripOneAPI.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

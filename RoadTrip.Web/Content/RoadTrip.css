@@ -8,10 +8,17 @@
 }
 .hcenter {
     display: inline-block;
-    horiz-align: center;
     float: none;
 }
 .content-padding {
     padding-left: 10px;
     padding-right: 10px
+}
+.moneyGoingOut {
+    background-color: crimson;
+    color: orange
+}
+.moneyComingIn {
+    background-color: aqua;
+    color: black;
 }

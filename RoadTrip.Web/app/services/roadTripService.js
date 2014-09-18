@@ -43,10 +43,33 @@ app.factory('roadTripService', [
                 });
             return deferred.promise;
         }
+        var _addUserToRoadTrip = function(userToAdd) {
+            var deferred = $q.defer();
+
+            $http.post(serviceBase + 'api/Trips/AddUserToRoadTrip', userToAdd).then(
+                function(data) {
+                    deferred.resolve(data);
+                }, function(e) {
+                    deferred.reject(e);
+                });
+            return deferred.promise;
+        }
+        var _joinRoadTrip = function(roadTripJoinModel) {
+            var deferred = $q.defer();
+            $http.post(serviceBase + 'api/Trips/JoinRoadTrip', roadTripJoinModel).then(
+                function(data) {
+                    _roadTripsIHaveJoined.push(data);
+                    deferred.resolve(data);
+                }, function(e) {
+                    deferred.reject(e);
+                });
+            return deferred.promise;
+        }
         roadTripServiceFactory.addNewRoadTrip = _addNewRoadTrip;
         roadTripServiceFactory.getAllRoadTripsIOwn = _getAllRoadTripsIOwn;
         roadTripServiceFactory.getRoadTripDetailById = _getRoadTripDetailById;
-
+        roadTripServiceFactory.addUserToRoadTrip = _addUserToRoadTrip;
+        roadTripServiceFactory.joinRoadTrip = _joinRoadTrip;
         return roadTripServiceFactory;
     }
 ]);

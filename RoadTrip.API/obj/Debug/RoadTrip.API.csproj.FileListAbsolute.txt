@@ -143,3 +143,4 @@ C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.API\obj\Debug\Roa
 C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.API\obj\Debug\RoadTrip.API.csproj.GenerateResource.Cache
 C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.API\obj\Debug\RoadTrip.API.dll
 C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.API\obj\Debug\RoadTrip.API.pdb
+C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.API\obj\Debug\RoadTrip.API.csprojResolveAssemblyReference.cache

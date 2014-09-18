@@ -31,9 +31,33 @@
 
                 return deferred.promise;
             }
+
+            var _mySharedCost = function(roadTripId) {
+                var deferred = $q.defer();
+                $http.get(serviceBase + 'api/Expense/GetMySharedCost/' + roadTripId.toString()).then(
+                    function(data) {
+                        deferred.resolve(data.data);
+                    }, function(e) {
+                        deferred.reject(e);
+                    });
+                return deferred.promise;
+            };
+            var _completeSharedCost = function(roadTripId) {
+                
+                var deferred = $q.defer();
+                $http.get(serviceBase + 'api/Expense/GetCompleteSharedCost/' + roadTripId.toString()).then(
+                    function (data) {
+                        deferred.resolve(data.data);
+                    }, function (e) {
+                        deferred.reject(e);
+                    });
+                return deferred.promise;
+            }
             return {
                 getAllExpenses: _getAllExpenses,
-                addExpense: _addExpense
+                addExpense: _addExpense,
+                mySharedCost: _mySharedCost,
+                completeSharedCost: _completeSharedCost
             };
         }
     ]);

@@ -1,6 +1,7 @@
 ﻿'use strict';
 app.controller('homeController', [
-    '$scope', '$location', 'authService', 'ngAuthSettings', function ($scope, $location, authService, ngAuthSettings) {
+    '$scope', '$location', '$timeout', 'authService', 'ngAuthSettings',
+    function ($scope, $location, $timeout, authService, ngAuthSettings) {
 
         $scope.loginData = {
             userName: "",
@@ -11,7 +12,16 @@ app.controller('homeController', [
             lastName: "",
             email: ""
         };
-        $scope.message = "";
+        $scope.loginMessage = "";
+
+        $scope.savedSuccessfully = false;
+        $scope.signUpMessage = "";
+
+        $scope.registration = {
+            userName: "",
+            password: "",
+            confirmPassword: ""
+        };
         
         authService.fillAuthData().then(function (data) {
             $scope.authentication = data;
@@ -30,14 +40,14 @@ app.controller('homeController', [
         });
 
         $scope.login = function () {
-
+            $scope.loginData.useRefreshTokens = false;
             authService.login($scope.loginData).then(function (response) {
 
                 $location.path('/myroadtrips');
 
             },
              function (err) {
-                 $scope.message = err.error_description;
+                 $scope.loginMessage = err.error_description;
              });
         };
 
@@ -85,11 +95,37 @@ app.controller('homeController', [
 
                     },
                  function (err) {
-                     $scope.message = err.error_description;
+                     $scope.loginMessage = err.error_description;
                  });
                 }
 
             });
+        }
+        $scope.signUp = function () {
+
+            authService.saveRegistration($scope.registration).then(function (response) {
+
+                $scope.savedSuccessfully = true;
+                $scope.signUpMessage = "User has been registered successfully, you will be redicted to login page in 2 seconds.";
+                startTimer();
+
+            },
+             function (response) {
+                 var errors = [];
+                 for (var key in response.data.modelState) {
+                     for (var i = 0; i < response.data.modelState[key].length; i++) {
+                         errors.push(response.data.modelState[key][i]);
+                     }
+                 }
+                 $scope.signUpMessage = "Failed to register user due to:" + errors.join(' ');
+             });
+        };
+
+        var startTimer = function () {
+            var timer = $timeout(function () {
+                $timeout.cancel(timer);
+                $location.path('/home');
+            }, 2000);
         }
     }
 ]);

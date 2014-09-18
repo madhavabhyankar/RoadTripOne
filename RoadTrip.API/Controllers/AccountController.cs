@@ -1,4 +1,6 @@
-﻿using RoadTrip.API.Models;
+﻿using System.Transactions;
+using RoadTrip.API.Entities;
+using RoadTrip.API.Models;
 using RoadTrip.API.Results;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -55,23 +57,41 @@ namespace RoadTrip.API.Controllers
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
-        public async Task<IHttpActionResult> Register(UserModel userModel)
+        public async Task<IHttpActionResult> Register(RegisterUserModel userModel)
         {
              if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+            using (var tx = new TransactionScope())
+            {
+                IdentityResult result =
+                    await
+                        _repo.RegisterUser(new UserModel
+                        {
+                            ConfirmPassword = userModel.ConfirmPassword,
+                            Password = userModel.Password,
+                            UserName = userModel.UserName
+                        });
 
-             IdentityResult result = await _repo.RegisterUser(userModel);
+                IHttpActionResult errorResult = GetErrorResult(result);
 
-             IHttpActionResult errorResult = GetErrorResult(result);
-
-             if (errorResult != null)
-             {
-                 return errorResult;
-             }
-
-             return Ok();
+                if (errorResult != null)
+                {
+                    return errorResult;
+                }
+                var user = new Person
+                {
+                    Email = userModel.Email,
+                    FirstName = userModel.FirstName,
+                    LastName = userModel.LastName,
+                    RegisteredUserName = userModel.UserName
+                };
+                _context.Persons.Add(user);
+                _context.SaveChanges();
+                tx.Complete();
+            }
+            return Ok();
         }
 
         // GET api/Account/ExternalLogin

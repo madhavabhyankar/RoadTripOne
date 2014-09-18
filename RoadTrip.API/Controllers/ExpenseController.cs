@@ -39,7 +39,10 @@ namespace RoadTrip.API.Controllers
                     ExpenseId = x.Id,
                     FirstName = x.Person.FirstName,
                     LastName = x.Person.LastName,
-                    Notes = x.Notes
+
+                    Notes = x.Notes,
+                    RoadTripId = x.TripId
+                    
                 }).ToList();
             }
             throw new Exception("You are not authorized to view expenses for this road trip.");
@@ -134,9 +137,8 @@ namespace RoadTrip.API.Controllers
             //Check if the user belongs to the Tirp
             if (_context.TripUserMaps.Any(x => (x.PersonId == ownerPerson.Id && x.TripId == roadTripId)))
             {
-
-                return GetSharedCostForRoadTrip(roadTripId).First(x => x.PersonId == ownerPerson.Id).Payouts;
-
+                var sharedCost = GetSharedCostForRoadTrip(roadTripId).FirstOrDefault(x => x.PersonId == ownerPerson.Id);
+                return sharedCost != null ? sharedCost.Payouts : new List<IndiSplit>();
             }
             throw new Exception("You are not authorized to see the spilt for this road tirp.");
         }
@@ -169,43 +171,49 @@ namespace RoadTrip.API.Controllers
             var uwsLQ = new Queue<ExpData>(usersWhoSpentLessThanShare);
             var sharedCost = new Dictionary<int, List<IndiSplit>>();
             //matching
-            var popedLessSpender = uwsLQ.Dequeue();
-            var pendingShare = eachPersonShare - popedLessSpender.AmountSpent;
-            foreach (var moreSpendingUser in userWhoSpentMoreThanShare)
+            if (uwsLQ.Any())
             {
-                var extraAmountSpent = moreSpendingUser.AmountSpent - eachPersonShare;
-                while (extraAmountSpent > 0)
+                var popedLessSpender = uwsLQ.Dequeue();
+                var pendingShare = eachPersonShare - popedLessSpender.AmountSpent;
+                foreach (var moreSpendingUser in userWhoSpentMoreThanShare)
                 {
-                    if (pendingShare < extraAmountSpent)
+                    var extraAmountSpent = moreSpendingUser.AmountSpent - eachPersonShare;
+                    while (extraAmountSpent > 0)
                     {
-                        extraAmountSpent -= pendingShare;
-                        AddUserToList(ref sharedCost, moreSpendingUser.PersonId, pendingShare, popedLessSpender);
-                        AddUserToList(ref sharedCost, popedLessSpender.PersonId, pendingShare * -1, moreSpendingUser);
-                        popedLessSpender = uwsLQ.Dequeue();
-                        pendingShare = eachPersonShare - popedLessSpender.AmountSpent;
-                    }
-                    else if (pendingShare > extraAmountSpent)
-                    {
-                        //extra amount = 0
-                        //pendingshare still remains
-                        AddUserToList(ref sharedCost, moreSpendingUser.PersonId, extraAmountSpent, popedLessSpender);
-                        AddUserToList(ref sharedCost, popedLessSpender.PersonId, extraAmountSpent * -1,
-                            moreSpendingUser);
-                        pendingShare -= extraAmountSpent;
-                        extraAmountSpent = 0;
-                    }
-                    else
-                    {
-                        AddUserToList(ref sharedCost, moreSpendingUser.PersonId, extraAmountSpent, popedLessSpender);
-                        AddUserToList(ref sharedCost, popedLessSpender.PersonId, extraAmountSpent * -1,
-                            moreSpendingUser);
-                        extraAmountSpent = 0;
-                        popedLessSpender = uwsLQ.Dequeue();
-                        pendingShare = eachPersonShare - popedLessSpender.AmountSpent;
+                        if (pendingShare < extraAmountSpent)
+                        {
+                            extraAmountSpent -= pendingShare;
+                            AddUserToList(ref sharedCost, moreSpendingUser.PersonId, pendingShare, popedLessSpender);
+                            AddUserToList(ref sharedCost, popedLessSpender.PersonId, pendingShare*-1, moreSpendingUser);
+                            popedLessSpender = uwsLQ.Dequeue();
+                            pendingShare = eachPersonShare - popedLessSpender.AmountSpent;
+                        }
+                        else if (pendingShare > extraAmountSpent)
+                        {
+                            //extra amount = 0
+                            //pendingshare still remains
+                            AddUserToList(ref sharedCost, moreSpendingUser.PersonId, extraAmountSpent, popedLessSpender);
+                            AddUserToList(ref sharedCost, popedLessSpender.PersonId, extraAmountSpent*-1,
+                                moreSpendingUser);
+                            pendingShare -= extraAmountSpent;
+                            extraAmountSpent = 0;
+                        }
+                        else
+                        {
+                            AddUserToList(ref sharedCost, moreSpendingUser.PersonId, extraAmountSpent, popedLessSpender);
+                            AddUserToList(ref sharedCost, popedLessSpender.PersonId, extraAmountSpent*-1,
+                                moreSpendingUser);
+                            extraAmountSpent = 0;
+                            if (uwsLQ.Count == 0)
+                            {
+                                break;
+                            }
+                            popedLessSpender = uwsLQ.Dequeue();
+                            pendingShare = eachPersonShare - popedLessSpender.AmountSpent;
+                        }
                     }
                 }
             }
-
             return sharedCost.Select(kvPair =>
             {
                 var user = users.First(x => x.PersonId == kvPair.Key);

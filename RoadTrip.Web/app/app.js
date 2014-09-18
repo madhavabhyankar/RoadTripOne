@@ -1,4 +1,4 @@
-﻿var app = angular.module("RoadTripApp", ['ngRoute', 'LocalStorageModule', 'angular-loading-bar']);
+﻿var app = angular.module("RoadTripApp", ['ngRoute', 'LocalStorageModule', 'angular-loading-bar', 'ui.bootstrap']);
 
 app.config(function($routeProvider) {
     $routeProvider.when("/home", {
@@ -50,11 +50,19 @@ app.config(function($routeProvider) {
         controller: "roadTripAddExpenseController",
         templateUrl: '/app/views/addExpense.html'
     });
+    $routeProvider.when("/addUser/:roadTripId", {
+        controller: 'addUserController',
+        templateUrl: '/app/views/adduser.html'
+    });
+    $routeProvider.when("/joinRoadTrip", {
+        controller: 'joinRoadTripController',
+        templateUrl: '/app/views/joinRoadTrip.html'
+    });
     $routeProvider.otherwise({ redirectTo: "/home" });
 
 });
 
-var serviceBase = 'http://localhost:9997/';
+var serviceBase = 'http://roadtriponeapi.azurewebsites.net/';
 app.constant('ngAuthSettings', {
     apiServiceBaseUri: serviceBase,
     clientId: 'ManageMyRoadTripApp'

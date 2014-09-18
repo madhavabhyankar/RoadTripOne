@@ -15,3 +15,4 @@ C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.Web\bin\RoadTrip.
 C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.Web\bin\RoadTrip.Web.pdb
 C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.Web\obj\Debug\RoadTrip.Web.dll
 C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.Web\obj\Debug\RoadTrip.Web.pdb
+C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.Web\obj\Debug\RoadTrip.Web.csprojResolveAssemblyReference.cache

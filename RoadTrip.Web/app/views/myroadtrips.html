@@ -3,7 +3,7 @@
         <h2 class="text-center">Looks like you don't have any Road Trips</h2>
         <p class="text-center">
             <a href="#/addnewroadtrip" class="btn btn-default"><i class="fa fa-plus"></i> | Add New </a>
-            <a href="#" class="btn btn-default"><i class="fa fa-sign-in"></i> | Join </a>
+            <a href="#/joinRoadTrip" class="btn btn-default"><i class="fa fa-sign-in"></i> | Join </a>
         </p>
 
     </div>
@@ -13,22 +13,24 @@
         <div class="text-center input-lg">
             Road Trips
         </div>
-        
+
     </div>
 
     <div class="row">
 
 
-        <div data-ng-repeat="roadTrip in roadTripsIOwn">
+        <div data-ng-repeat="roadTrip in myRoadTrips">
             <div class="content-padding">
                 <a data-ng-href="#/tripdetails/{{roadTrip.id}}" class="btn btn-default form-control"><span class="pull-left">{{roadTrip.name}}</span><i class="glyphicon glyphicon-arrow-right pull-right"></i></a>
             </div>
-            
+
         </div>
 
     </div>
 </div>
 <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-
-       <a href="#/home" class="form-control btn btn-default"><i class="fa fa-home"></i> | Home</a>
+    <div class="btn-group-justified">
+        <a href="#/home" class="btn btn-default"><i class="fa fa-home"></i> | Home</a>
+        <a href="#/addnewroadtrip" class="btn btn-default"><i class="fa fa-plus"></i> | Add Trip</a>
+    </div>
 </nav>

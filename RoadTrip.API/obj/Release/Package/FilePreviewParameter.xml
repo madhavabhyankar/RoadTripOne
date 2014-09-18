@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="RoadTripOneAPI" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\madhavabhyankar\\Documents\\GitHub\\RoadTripOne\\RoadTrip\.API\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\madhavabhyankar\\Documents\\GitHub\\RoadTripOne\\RoadTrip\.API\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="RoadTripContext-Web.config Connection String" description="" value="Data Source=tcp:ulg092us0x.database.windows.net,1433;Initial Catalog=RoadTripOneAPI_db;User Id=madhavadmin@ulg092us0x;Password=M@dh@v123" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\madhavabhyankar\\Documents\\GitHub\\RoadTripOne\\RoadTrip\.API\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='RoadTripContext']/@connectionString" />
+  </parameter>
+</parameters>
