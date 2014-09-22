@@ -96,6 +96,8 @@
     <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
     <Content Include="Scripts\authComplete.js" />
+    <None Include="Properties\PublishProfiles\RoadTripOne - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\RoadTripOne - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.1-vsdoc.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />

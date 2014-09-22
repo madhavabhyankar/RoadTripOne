@@ -37,7 +37,7 @@ namespace RoadTrip.API.Migrations
                     ApplicationType =  Models.ApplicationTypes.JavaScript, 
                     Active = true, 
                     RefreshTokenLifeTime = 7200, 
-                    AllowedOrigin = "http://localhost:1094"
+                    AllowedOrigin = "http://localhost:1094/"
                 },
                 new Client
                 { Id = "consoleApp", 

@@ -1,0 +1,58 @@
+﻿
+<div class="row">
+    <h2 class="text-center">
+        {{routeTripDetails.roadTripName}}
+    </h2>
+</div>
+<div class="row">
+    <h4 class="text-center">
+        Join Code <pre>{{routeTripDetails.roadTripHash}}</pre>
+    </h4>
+    
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Expenses</div>
+            <div class="panel-body">
+                <span>{{routeTripDetails.totalExpenses | currency}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Owner</div>
+            <div class="panel-body">
+                <strong>Name:</strong> {{routeTripDetails.ownerFirstName}} {{routeTripDetails.ownerLastName}} <br/>
+                <strong>Total Users:</strong> {{routeTripDetails.users.length}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            My Payouts
+        </div>
+        <div class="panel-body">
+            <table class="table table-bordered table-condensed">
+                <tr data-ng-repeat="cost in mySharedCost">
+
+                    <td >{{cost.firstName}} {{cost.lastName}}</td>
+                    <td data-ng-class="cost.amount < 0 ? 'moneyGoingOut': 'moneyComingIn'">
+                        {{cost.amount}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    <div class="btn-group-justified">
+       
+        <a class="btn btn-default " data-ng-href="#/addExpense/{{routeTripDetails.roadTripId}}"><i class="fa fa-dollar"></i></a>
+        <a class="btn btn-default" data-ng-href="#/addUser/{{routeTripDetails.roadTripId}}"><i class="fa fa-users"></i></a>
+        <a class="btn btn-default" href="#/myroadtrips"><i class="fa fa-road"></i></a>
+    </div>
+</nav>

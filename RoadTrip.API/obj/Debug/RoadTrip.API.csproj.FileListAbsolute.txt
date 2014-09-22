@@ -139,8 +139,8 @@ C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.API\bin\System.Ne
 C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.API\bin\System.Web.Http.xml
 C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.API\bin\System.Web.Http.Owin.xml
 C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.API\bin\System.Web.Http.WebHost.xml
+C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.API\obj\Debug\RoadTrip.API.csprojResolveAssemblyReference.cache
 C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.API\obj\Debug\RoadTrip.API.Migrations.AddClientsAndRefreshTokenTables.resources
 C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.API\obj\Debug\RoadTrip.API.csproj.GenerateResource.Cache
 C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.API\obj\Debug\RoadTrip.API.dll
 C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.API\obj\Debug\RoadTrip.API.pdb
-C:\Users\madhavabhyankar\Documents\GitHub\RoadTripOne\RoadTrip.API\obj\Debug\RoadTrip.API.csprojResolveAssemblyReference.cache
