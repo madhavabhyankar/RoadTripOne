@@ -72,6 +72,7 @@
     <Content Include="app\controllers\signupcontroller.js" />
     <Content Include="app\controllers\tokensManagementController.js" />
     <Content Include="app\directives\datepicker.js" />
+    <Content Include="app\directives\truncateFilter.js" />
     <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\expenseService.js" />
     <Content Include="app\services\roadTripService.js" />
@@ -96,7 +97,9 @@
     <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
     <Content Include="Scripts\authComplete.js" />
+    <None Include="Properties\PublishProfiles\RoadTripOne - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\RoadTripOne - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\RoadTripOne - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\RoadTripOne - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.1-vsdoc.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />

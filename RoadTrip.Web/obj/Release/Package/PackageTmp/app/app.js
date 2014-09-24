@@ -1,4 +1,4 @@
-﻿var app = angular.module("RoadTripApp", ['ngRoute', 'LocalStorageModule', 'angular-loading-bar', 'ui.bootstrap']);
+﻿var app = angular.module("RoadTripApp", ['ngRoute', 'LocalStorageModule', 'angular-loading-bar', 'ui.bootstrap', 'filters']);
 
 app.config(function($routeProvider) {
     $routeProvider.when("/home", {

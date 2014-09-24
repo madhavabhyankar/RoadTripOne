@@ -15,8 +15,25 @@
         <div class="panel panel-default">
             <div class="panel-heading">Expenses</div>
             <div class="panel-body">
-                <span>{{routeTripDetails.totalExpenses | currency}}</span>
+                <div class="alert alert-info">Total Expenses: <span style="font-weight: bolder; color: red">{{roadTripExpenses.totalExpenses | currency}}</span></div>
             </div>
+                <table class="table">
+                    <tr>
+                        <th>Date</th>
+                        <th>User</th>
+                        <th>Expense</th>
+                        <th>Details</th>
+                    </tr>
+                    <tbody data-ng-repeat="expense in roadTripExpenses.expenses | orderBy:expenseDate">
+                        <tr>
+                            <td>{{expense.expenseDate | date:'MM-dd-yyyy'}}</td>
+                            <td>{{expense.firstName |truncate:1:''}}&nbsp;{{expense.lastName}}</td>
+                            <td>{{expense.dollarAmount | currency}}</td>
+                            <td>{{expense.notes | truncate:15}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
         </div>
     </div>
     <div class="col-sm-6">
