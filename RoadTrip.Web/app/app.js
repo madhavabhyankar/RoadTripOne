@@ -65,8 +65,8 @@ app.config(function($routeProvider) {
 var serviceBase = 'http://roadtripplus.azurewebsites.net/';
 app.constant('ngAuthSettings', {
     apiServiceBaseUri: serviceBase,
-    //clientId: 'ManageMyRoadTripAppLocal'
-    clientId: 'ManageMyRoadTripApp'
+    clientId: 'ManageMyRoadTripAppLocal'
+    //clientId: 'ManageMyRoadTripApp'
 });
 
 app.config(function ($httpProvider) {

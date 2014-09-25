@@ -57,7 +57,7 @@
 
                     <td >{{cost.firstName}} {{cost.lastName}}</td>
                     <td data-ng-class="cost.amount < 0 ? 'moneyGoingOut': 'moneyComingIn'">
-                        {{cost.amount}}
+                        {{cost.amount | currency}}
                     </td>
                 </tr>
             </table>
@@ -65,6 +65,28 @@
     </div>
 </div>
 
+<h2>Complete payouts</h2>
+
+<div class="row">
+    <div data-ng-repeat="userCost in completeSharedCost">
+        <div class="panel panel-default">
+            <div class="panel-heading">{{userCost.firstName}}&nbsp;{{userCost.lastName}}</div>
+            <div class="panel-body">
+                <table class="table table-bordered table-condensed">
+                    <tr data-ng-repeat="cost in userCost.payouts">
+
+                        <td>{{cost.firstName}} {{cost.lastName}}</td>
+                        <td data-ng-class="cost.amount < 0 ? 'moneyGoingOut': 'moneyComingIn'">
+                            {{cost.amount | currency}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
 <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
     <div class="btn-group-justified">
        

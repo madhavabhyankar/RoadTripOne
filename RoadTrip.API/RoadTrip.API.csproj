@@ -199,8 +199,10 @@
     <None Include="Properties\PublishProfiles\RoadTripOneAPI - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\RoadTripOneAPI.pubxml" />
     <None Include="Properties\PublishProfiles\roadtripplus - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\roadtripplus - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\roadtripplus - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\roadtripplus - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\roadtripplus - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\roadtripplus - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

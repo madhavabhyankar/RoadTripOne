@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="RoadTripContext-Web.config Connection String" description="RoadTripContext Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:ulg092us0x.database.windows.net,1433;Database=RoadTripOne;User ID=madhavadmin@ulg092us0x;Password=M@dh@v123;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\madhavabhyankar\\Documents\\GitHub\\RoadTripOne\\RoadTrip\.API\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='RoadTripContext']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\mabhyankar\\Documents\\GitHub\\RoadTripOne\\RoadTripOne\\RoadTrip\.API\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='RoadTripContext']/@connectionString" />
   </parameter>
 </parameters>

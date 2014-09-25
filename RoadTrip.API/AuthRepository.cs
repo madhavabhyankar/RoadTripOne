@@ -26,14 +26,14 @@ namespace RoadTrip.API
             _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_ctx));
         }
 
-        public async Task<IdentityResult> RegisterUser(UserModel userModel)
+        public IdentityResult RegisterUser(UserModel userModel)
         {
-            IdentityUser user = new IdentityUser
+            var user = new IdentityUser
             {
                 UserName = userModel.UserName
             };
 
-            var result = await _userManager.CreateAsync(user, userModel.Password);
+            var result = _userManager.Create(user, userModel.Password);
 
             return result;
         }

@@ -57,7 +57,7 @@ namespace RoadTrip.API.Controllers
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
-        public async Task<IHttpActionResult> Register(RegisterUserModel userModel)
+        public IHttpActionResult Register(RegisterUserModel userModel)
         {
              if (!ModelState.IsValid)
             {
@@ -65,8 +65,8 @@ namespace RoadTrip.API.Controllers
             }
             using (var tx = new TransactionScope())
             {
-                IdentityResult result =
-                    await
+                var result =
+                    
                         _repo.RegisterUser(new UserModel
                         {
                             ConfirmPassword = userModel.ConfirmPassword,
