@@ -1,0 +1,22 @@
+﻿@model RoadTrip.API.Models.NewClientModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = null;
+}
+
+@Html.DisplayFor(x=>x.Secret)
+<h2>title</h2>
+@Html.BeginForm("SaveNewClient","AddNewClient",FormMethod.Post){
+    
+@Html.LabelFor(x=>x.Id)
+@Html.TextBoxFor(x=>x.Id)
+<br/>
+@Html.LabelFor(x=>x.Name)
+@Html.TextBoxFor(x => x.Name)
+<br/>
+@Html.LabelFor(x => x.RefreshTokenLifeTime)
+@Html.TextBoxFor(x => x.RefreshTokenLifeTime)
+<br/>
+<input type="submit" value="Save"/>
+}
