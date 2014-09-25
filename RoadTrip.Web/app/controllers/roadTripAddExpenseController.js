@@ -1,5 +1,5 @@
 ﻿app.controller('roadTripAddExpenseController', [
-    '$scope', '$routeParams', '$location', 'expenseService', function($scope, $routeParams, $location, expenseService) {
+    '$scope', '$stateParams', '$location', 'expenseService', function ($scope, $stateParams, $location, expenseService) {
         $scope.dateOptions = {
             formatYear: 'yy',
             startingDay: 1
@@ -12,7 +12,7 @@
         };
 
         $scope.expenses = {};
-        $scope.expenses.tripId = $routeParams.roadTripId;
+        $scope.expenses.tripId = $stateParams.roadTripId;
         $scope.expenses.expenseDate = new Date();
         $scope.saveExpense = function() {
             expenseService.addExpense($scope.expenses).then(function(data) {

@@ -1,10 +1,10 @@
 ﻿'use strict';
 app.controller('roadTripDetailsController', [
-    '$scope', '$routeParams', 'roadTripService', 'expenseService',
-    function ($scope, $routeParams, roadTripService, expenseService) {
+    '$scope', '$stateParams', 'roadTripService', 'expenseService',
+    function ($scope, $stateParams, roadTripService, expenseService) {
         $scope.routeTripDetails = {};
         $scope.roadTripExpenses = {};
-        roadTripService.getRoadTripDetailById($routeParams.roadTripId).then(
+        roadTripService.getRoadTripDetailById($stateParams.roadTripId).then(
             function(data) {
                 $scope.routeTripDetails = data;
 
@@ -12,20 +12,20 @@ app.controller('roadTripDetailsController', [
 
             });
 
-        expenseService.getAllExpenses($routeParams.roadTripId).then(function(data) {
+        expenseService.getAllExpenses($stateParams.roadTripId).then(function (data) {
             $scope.roadTripExpenses.expenses = data;
             $scope.roadTripExpenses.totalExpenses = _.reduce(data, function (memo, item) { return memo + item.dollarAmount; }, 0);
         }, function(e) {
 
         });
 
-        expenseService.mySharedCost($routeParams.roadTripId).then(function(data) {
+        expenseService.mySharedCost($stateParams.roadTripId).then(function (data) {
             $scope.mySharedCost = data;
         }, function(e) {
 
         });
 
-        expenseService.completeSharedCost($routeParams.roadTripId).then(function(data) {
+        expenseService.completeSharedCost($stateParams.roadTripId).then(function (data) {
             $scope.completeSharedCost = data;
         }, function(e) {
 

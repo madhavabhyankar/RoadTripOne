@@ -1,9 +1,9 @@
-﻿app.controller("addUserController", ['$scope', '$routeParams', '$location', 'roadTripService',
-    function($scope, $routeParams, $location, roadTripService) {
+﻿app.controller("addUserController", ['$scope', '$stateParams', '$location', 'roadTripService',
+    function ($scope, $stateParams, $location, roadTripService) {
         $scope.newUser = {};
         $scope.isError = false;
         $scope.error = "";
-        $scope.newUser.roadTripId = $routeParams.roadTripId;
+        $scope.newUser.roadTripId = $stateParams.roadTripId;
 
         $scope.addUser = function() {
             roadTripService.addUserToRoadTrip($scope.newUser).then(

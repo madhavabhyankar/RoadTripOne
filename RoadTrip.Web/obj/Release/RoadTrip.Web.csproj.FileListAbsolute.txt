@@ -9,3 +9,4 @@ C:\Users\mabhyankar\Documents\GitHub\RoadTripOne\RoadTripOne\RoadTrip.Web\bin\Ro
 C:\Users\mabhyankar\Documents\GitHub\RoadTripOne\RoadTripOne\RoadTrip.Web\bin\RoadTrip.Web.pdb
 C:\Users\mabhyankar\Documents\GitHub\RoadTripOne\RoadTripOne\RoadTrip.Web\obj\Release\RoadTrip.Web.dll
 C:\Users\mabhyankar\Documents\GitHub\RoadTripOne\RoadTripOne\RoadTrip.Web\obj\Release\RoadTrip.Web.pdb
+C:\Users\mabhyankar\Documents\GitHub\RoadTripOne\RoadTripOne\RoadTrip.Web\obj\Release\RoadTrip.Web.csprojResolveAssemblyReference.cache

@@ -1,9 +1,9 @@
 ﻿app.controller("roadTripExpensesContoller", [
-    '$scope', '$routeParams', 'expenseService',
-    function ($scope,$routeParams, expenseService) {
+    '$scope', '$stateParams', 'expenseService',
+    function ($scope, $stateParams, expenseService) {
         $scope.expenses = [];
-        $scope.roadTripid = $routeParams.roadTripId;
-        expenseService.getAllExpenses($routeParams.roadTripId).then(function(data) {
+        $scope.roadTripid = $stateParams.roadTripId;
+        expenseService.getAllExpenses($stateParams.roadTripId).then(function (data) {
             $scope.expenses = data;
         }, function(e) {
             //error
